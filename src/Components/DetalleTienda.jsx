@@ -22,7 +22,7 @@ function DetalleTienda({ juego }) {
 
         <p className="card-text text-light mb-4">{juego.descripcion}</p>
 
-        <div className="row mb-4 text-muted">
+        <div className="row mb-4 text-light">
           <div className="col-6">
             <p className="mb-1"><strong>Género:</strong> {juego.genero}</p>
             <p className="mb-0"><strong>Edad:</strong> {juego.edad}</p>
@@ -34,8 +34,8 @@ function DetalleTienda({ juego }) {
 
         <div className="p-3 bg-dark rounded border border-secondary mb-4">
           <h6 className="fw-bold text-light mb-2">Requisitos Mínimos</h6>
-          <ul className="list-unstyled mb-0 text-muted small">
-            <li><strong>SO:</strong> {juego.requisitos.os}</li>
+          <ul className="list-unstyled mb-0 text-light small">
+            <li><strong>Sistema Operativo:</strong> {juego.requisitos.os}</li>
             <li><strong>CPU:</strong> {juego.requisitos.cpu}</li>
             <li><strong>GPU:</strong> {juego.requisitos.gpu}</li>
             <li><strong>RAM:</strong> {juego.requisitos.ram}</li>
