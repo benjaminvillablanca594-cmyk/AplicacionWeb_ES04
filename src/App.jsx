@@ -1,7 +1,7 @@
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import ListaTienda from "./components/ListaTienda.jsx";
-import DetalleTienda from "./components/DetalleTienda.jsx";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
+import ListaTienda from "./ListaTienda.jsx";
+import DetalleTienda from "./DetalleTienda.jsx";
 import { useState } from "react";
 
 // revision de localStorage para obtener el último juego seleccionado
@@ -54,7 +54,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
 
