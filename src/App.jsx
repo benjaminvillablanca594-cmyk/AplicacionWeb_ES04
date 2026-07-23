@@ -4,43 +4,52 @@ import ListaTienda from "./ListaTienda.jsx";
 import DetalleTienda from "./DetalleTienda.jsx";
 import { useState } from "react";
 
+// revision de localStorage para obtener el último juego seleccionado
 function App() {
   const juegoGuardado = localStorage.getItem("ultimoJuegoSeleccionado");
-  let valorInicial = null;
+  let ValorInicial = null;
   if (juegoGuardado !== null) {
-    valorInicial = JSON.parse(juegoGuardado);
+    ValorInicial = JSON.parse(juegoGuardado);
   }
 
-  const [juegoSeleccionado, setJuegoSeleccionado] = useState(valorInicial);
-  
+  // estado principal en la aplicacion
+  const [juegoSeleccionado, setJuegoSeleccionado] = useState(ValorInicial);
   const manejarJuegoSeleccionado = (juego) => {
     setJuegoSeleccionado(juego);
     localStorage.setItem("ultimoJuegoSeleccionado", JSON.stringify(juego));
   };
 
   return (
-    <div className="bg-dark text-white min-vh-100 d-flex flex-column">
+    <>
       <Header />
       
-      <main className="container mt-5 mb-5 flex-grow-1">
-        <div className="row g-4">
-          <div className="col-md-5">
-            <h3 className="mb-4 fw-bold text-light">Catálogo de Títulos</h3>
+      <main className="container mt-4">
+        {/* Envolvemos todo en un 'row' para crear las columnas en paralelo */}
+        <div className="row">
+          
+          {/* Columna Izquierda: Lista de juegos */}
+          <div className="col-md-6">
+            {/* Le pasamos la función a la lista mediante props */}
             <ListaTienda onSeleccionar={manejarJuegoSeleccionado} />
           </div>
           
-          <div className="col-md-7">
+          {/* Columna Derecha: Detalle del juego */}
+          <div className="col-md-6">
+            {/* sticky-top hace que el detalle baje contigo si la lista es muy larga */}
             <div className="sticky-top" style={{ top: '20px' }}>
+              
+              {/* Renderizamos el detalle SOLO si hay un juego seleccionado, de lo contrario mostramos un mensaje */}
               {juegoSeleccionado !== null ? (
                 <DetalleTienda juego={juegoSeleccionado} />
               ) : (
-                <div className="alert bg-black text-white border border-secondary text-center p-5 shadow">
-                  <h4>Selecciona un título</h4>
-                  <p className="text-muted mb-0">Haz clic en "Más información" para revisar las especificaciones del producto.</p>
+                <div className="alert alert-secondary mt-4 text-center shadow-sm">
+                  Haz clic en "Más información" en cualquier título para ver sus detalles aquí.
                 </div>
               )}
+              
             </div>
           </div>
+
         </div>
       </main>
 
