@@ -12,5 +12,4 @@ return(
 }
 
 export default ListaTienda
-//hola
-//chao
+
