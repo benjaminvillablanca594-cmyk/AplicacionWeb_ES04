@@ -1,5 +1,6 @@
 function TiendaCard(props) {
   return (
+  <>
     <div className="card bg-black border-secondary text-white shadow-sm h-100">
       <img 
         src={props.juego.imagen} 
@@ -18,6 +19,7 @@ function TiendaCard(props) {
         </button>
       </div>
     </div>
+  </>
   );
 }
 

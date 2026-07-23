@@ -1,5 +1,5 @@
 function DetalleTienda({ juego }) {
-    if (!juego) {
+    if (!juego) { 
         return (
             <div className="alert alert-secondary mt-4 text-center" role="alert">
                 Selecciona un juego para ver más información.
@@ -8,6 +8,7 @@ function DetalleTienda({ juego }) {
     }
 
     return (
+      <>
         <div className="card shadow-sm border-0 mt-4">
           <div className="row g-0 align-items-center">
             <div className="col-md-5">
@@ -38,6 +39,7 @@ function DetalleTienda({ juego }) {
             </div>
           </div>
         </div>
+      </>
     );
 }
 
