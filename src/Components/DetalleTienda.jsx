@@ -1,46 +1,49 @@
-import {useState} from "react";
+function DetalleTienda({ juego }) {
+  if (!juego) {
+    return null;
+  }
 
-function DetalleTienda({props}){
-    const [cantidad, setCantidad] = useState(1);
-
-    const aumentarCantidad = () => {
-        if (cantidad < props.juego.stock) {
-            setCantidad(cantidad + 1);
-        }
-        else 
-        { window.alert("No hay más stock disponible");}
-        };
-
-        const disminuirCantidad = () => {
-            if (cantidad > 1) {
-                setCantidad(cantidad - 1);
-            }
-        };
-return(
-    <div className="card mb-5 shadow border-primary mt-4">
-      <div className="row g-0">
-        <div className="col-md-4">
-          <img src={props.juego.imagen} className="img-fluid rounded-start h-100 object-fit-cover" alt={props.juego.nombre} />
+  return (
+    <div className="card bg-black border-secondary text-white shadow-lg">
+      <img 
+        src={juego.imagen} 
+        className="card-img-top" 
+        alt={juego.nombre}
+        style={{ maxHeight: '400px', objectFit: 'cover' }}
+      />
+      <div className="card-body p-4">
+        <h2 className="card-title fw-bold">{juego.nombre}</h2>
+        
+        <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-secondary pb-3 mt-3">
+          <h4 className="text-primary fw-bold mb-0">${juego.precio.toLocaleString('es-CL')}</h4>
+          <span className="badge bg-secondary fs-6 text-white">Valoración: {juego.valoracion}</span>
         </div>
-        <div className="col-md-8">
-          <div className="card-body">
-            <h3 className="card-title">{props.juego.nombre}</h3>
-            <p className="card-text">{props.juego.descripcion}</p>
-            
-            <ul className="list-group list-group-flush mb-3">
-              <li className="list-group-item"><strong>Precio:</strong> {props.juego.precio}</li>
-              <li className="list-group-item"><strong>Stock disponible:</strong> {props.juego.stock} unidades</li>
-              <li className="list-group-item"><strong>Reseñas:</strong> {estrellasHtml}</li>
-            </ul>
-
-            <div className="d-flex align-items-center mb-3">
-              <span className="me-3"><strong>Cantidad a comprar:</strong></span>
-              <button className="btn btn-secondary btn-sm" onClick={disminuirCantidad}>-</button>
-              <span className="mx-3">{cantidad}</span>
-              <button className="btn btn-secondary btn-sm" onClick={aumentarCantidad}>+</button>
-            </div>
+        
+        <p className="card-text text-light mb-4">{juego.descripcion}</p>
+        
+        <div className="row mb-4 text-muted">
+          <div className="col-6">
+            <p className="mb-1"><strong>Género:</strong> {juego.genero}</p>
+            <p className="mb-0"><strong>Edad:</strong> {juego.edad}</p>
+          </div>
+          <div className="col-6">
+            <p className="mb-1"><strong>Desarrollador:</strong> {juego.desarrollador}</p>
           </div>
         </div>
+
+        <div className="p-3 bg-dark rounded border border-secondary mb-4">
+          <h6 className="fw-bold text-light mb-2">Requisitos Mínimos</h6>
+          <ul className="list-unstyled mb-0 text-muted small">
+            <li><strong>SO:</strong> {juego.requisitos.os}</li>
+            <li><strong>CPU:</strong> {juego.requisitos.cpu}</li>
+            <li><strong>GPU:</strong> {juego.requisitos.gpu}</li>
+            <li><strong>RAM:</strong> {juego.requisitos.ram}</li>
+          </ul>
+        </div>
+
+        <button className="btn btn-primary btn-lg w-100 fw-bold">
+          Descargar Dossier
+        </button>
       </div>
     </div>
   );
