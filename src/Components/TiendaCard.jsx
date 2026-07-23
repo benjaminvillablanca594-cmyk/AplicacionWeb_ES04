@@ -10,7 +10,7 @@ function TiendaCard(props) {
       />
       <div className="card-body d-flex flex-column">
         <h5 className="card-title fw-bold">{props.juego.nombre}</h5>
-        <p className="card-text text-muted text-truncate">{props.juego.descripcion}</p>
+        <p className="card-text text-light text-truncate">{props.juego.descripcion}</p>
         <button 
           className="btn btn-outline-primary mt-auto fw-bold"
           onClick={() => props.onSeleccionar(props.juego)}
