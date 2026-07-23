@@ -1,10 +1,10 @@
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import ListaTienda from "./ListaTienda.jsx";
-import DetalleTienda from "./DetalleTienda.jsx";
+import Header from "./Components/Header.jsx";
+import Footer from "./Components/Footer.jsx";
+import ListaTienda from "./Components/ListaTienda.jsx";
+import DetalleTienda from "./Components/DetalleTienda.jsx";
 import { useState } from "react";
 
-// revision de localStorage para obtener el último juego seleccionado
+// Implementacio de localStorage para obtener el último juego seleccionado y poder vizualisar su informacion
 function App() {
   const juegoGuardado = localStorage.getItem("ultimoJuegoSeleccionado");
   let ValorInicial = null;
@@ -12,7 +12,7 @@ function App() {
     ValorInicial = JSON.parse(juegoGuardado);
   }
 
-  // estado principal en la aplicacion
+  // Estado principal en la aplicacion
   const [juegoSeleccionado, setJuegoSeleccionado] = useState(ValorInicial);
   const manejarJuegoSeleccionado = (juego) => {
     setJuegoSeleccionado(juego);
@@ -21,24 +21,25 @@ function App() {
 
   return (
     <>
+      <div className="bg-dark text-white min-vh-100 d-flex flex-column">
       <Header />
       
       <main className="container mt-4">
-        {/* Envolvemos todo en un 'row' para crear las columnas en paralelo */}
+        {/* Creamos las columnas en paralelo con row */}
         <div className="row">
           
-          {/* Columna Izquierda: Lista de juegos */}
+          {/* La columna de la izquierda es donde se encontrara la Lista de juegos */}
           <div className="col-md-6">
             {/* Le pasamos la función a la lista mediante props */}
             <ListaTienda onSeleccionar={manejarJuegoSeleccionado} />
           </div>
           
-          {/* Columna Derecha: Detalle del juego */}
+          {/* La columna de la derecha mostrara los Detalle del juego */}
           <div className="col-md-6">
-            {/* sticky-top hace que el detalle baje contigo si la lista es muy larga */}
+            {/* sticky-top cumple la funcion de poder vizualisar toda la infromacion si esta es muy extensa */}
             <div className="sticky-top" style={{ top: '20px' }}>
               
-              {/* Renderizamos el detalle SOLO si hay un juego seleccionado, de lo contrario mostramos un mensaje */}
+              {/* Renderizamos el detalle solo si un juego ha sido seleccionado, de lo contrario mostramos un mensaje */}
               {juegoSeleccionado !== null ? (
                 <DetalleTienda juego={juegoSeleccionado} />
               ) : (
@@ -55,6 +56,7 @@ function App() {
 
       <Footer />
     </div>
+  </>
   );
 }
 
