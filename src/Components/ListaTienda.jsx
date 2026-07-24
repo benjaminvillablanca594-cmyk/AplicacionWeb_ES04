@@ -4,7 +4,7 @@ function ListaTienda(props) {
 
   const juego1 = {
     nombre: "EA Sports FC 26",
-    imagen: "/imagenes/fc26.jpg",
+    imagen: "/portada/fc26.jpg",
     descripcion: "Simulador de fútbol con múltiples modos de juego. Experimenta la máxima autenticidad con las ligas, clubes y estrellas más importantes del mundo del fútbol.",
     precio: "$59.990",
     estrellas: "4.0/5",
@@ -21,7 +21,7 @@ function ListaTienda(props) {
 
   const juego2 = {
     nombre: "Minecraft",
-    imagen: "/imagenes/minecraft.jpg",
+    imagen: "/portada/minecraft.jpg",
     descripcion: "Juego de construcción y supervivencia en un mundo hecho de bloques. Explora mundos generados aleatoriamente y construye cosas maravillosas, desde una simple casa hasta un grandioso castillo.",
     precio: "$29.990",
     estrellas: "4.7/5",
@@ -38,7 +38,7 @@ function ListaTienda(props) {
 
   const juego3 = {
     nombre: "Grand Theft Auto V",
-    imagen: "/imagenes/gta5.jpg",
+    imagen: "/portada/gta5.jpg",
     descripcion: "Juego de acción y mundo abierto. Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, deben llevar a cabo una serie de peligrosos golpes para sobrevivir.",
     precio: "$24.990",
     estrellas: "5/5",
