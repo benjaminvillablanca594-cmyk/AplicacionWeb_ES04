@@ -1,20 +1,16 @@
-function Footer (){
-
-    return(
-
+function Footer() {
+  return (
     <>
-     <footer className="container-fluid bg-dark text-white text-center py-3 mt-4"></footer>   
-    
-    <h4>Integrantes</h4>
-
-    <ul id="lista" className="text-center">
+    <footer className="container-fluid bg-black text-white text-center py-4 mt-auto border-top border-secondary">
+      <h4 className="mb-3 text-light">Equipo de Desarrollo del Proyecto</h4>
+      <ul className="list-unstyled text-center mb-0 text-light">
         <li>Samuel Almao</li>
         <li>Benjamin Cuevas</li>
-        <li>Martin Garcia</li>
         <li>Benjamin Muñoz</li>
-    </ul>
+      </ul>
+    </footer>
     </>
-    )
+  );
 }
 
-export default Footer
+export default Footer;
