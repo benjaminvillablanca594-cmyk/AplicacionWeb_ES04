@@ -17,7 +17,7 @@ function DetalleTienda({ juego }) {
 
         <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-secondary pb-3 mt-3">
           <h4 className="text-primary fw-bold mb-0">${juego.precio.toLocaleString('es-CL')}</h4>
-          <span className="badge bg-secondary fs-6 text-white">Valoración: {juego.valoracion}</span>
+          <span className="badge bg-secondary fs-6 text-white">Valoración: {juego.estrellas}</span>
         </div>
 
         <p className="card-text text-light mb-4">{juego.descripcion}</p>
